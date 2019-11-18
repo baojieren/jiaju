@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ink.baojie.jiaju.data.dao.ScenesDao">
+  <resultMap id="BaseResultMap" type="ink.baojie.jiaju.data.po.ScenesPo">
+    <!--@mbg.generated-->
+    <!--@Table t_scenes-->
+    <id column="id" property="id" />
+    <result column="title" property="title" />
+    <result column="img" property="img" />
+    <result column="remake" property="remake" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, img, remake, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_scenes
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_scenes
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="ink.baojie.jiaju.data.po.ScenesPo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_scenes (title, img, remake, create_time, update_time)
+    values (#{title}, #{img}, #{remake}, #{createTime}, #{updateTime})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="ink.baojie.jiaju.data.po.ScenesPo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_scenes
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null and title != ''">
+        title,
+      </if>
+      <if test="img != null and img != ''">
+        img,
+      </if>
+      <if test="remake != null and remake != ''">
+        remake,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null and title != ''">
+        #{title},
+      </if>
+      <if test="img != null and img != ''">
+        #{img},
+      </if>
+      <if test="remake != null and remake != ''">
+        #{remake},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="ink.baojie.jiaju.data.po.ScenesPo">
+    <!--@mbg.generated-->
+    update t_scenes
+    <set>
+      <if test="title != null and title != ''">
+        title = #{title},
+      </if>
+      <if test="img != null and img != ''">
+        img = #{img},
+      </if>
+      <if test="remake != null and remake != ''">
+        remake = #{remake},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ink.baojie.jiaju.data.po.ScenesPo">
+    <!--@mbg.generated-->
+    update t_scenes
+    set title = #{title},
+      img = #{img},
+      remake = #{remake},
+      create_time = #{createTime},
+      update_time = #{updateTime}
+    where id = #{id}
+  </update>
+</mapper>

@@ -1,0 +1,27 @@
+server:
+  port: 8087
+  servlet:
+    context-path: /jiaju
+
+settings:
+  debug: false
+spring:
+  datasource:
+    url: jdbc:mysql://rm-wz901mrg75h6qknrl8o.mysql.rds.aliyuncs.com:3306/baojie?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: Mysql615243!
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    timeout: 15000ms
+#    database: 0
+#    password: Redis615243
+#    lettuce:
+#      pool:
+#        max-active: 20
+#        max-idle: 5
+#        min-idle: 1
+#        max-wait: 15000ms
+#  jackson:
+#    time-zone: GMT+8
+#    date-format: yyyy-MM-dd HH:mm:ss
