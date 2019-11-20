@@ -31,7 +31,7 @@ public class CustomError {
     public static final CustomError ERR_USER_ALREADY_EXIST = new CustomError(AUTH_ERR_CODE_START + 5, "用户已存在");
     public static final CustomError AUTH_F_USER_NOT_MATCH = new CustomError(AUTH_ERR_CODE_START + 6, "用户不匹配");
 
-    public static final CustomError ERR_LOGIN_WRONG_ACC_OR_PW = new CustomError(AUTH_ERR_CODE_START + 11, "账户/密码错误");
+    public static final CustomError ERR_LOGIN_WRONG_ACC_OR_PW = new CustomError(AUTH_ERR_CODE_START + 11, "账户或密码错误");
     public static final CustomError ERR_LOGIN_ATTEMPTS_EX = new CustomError(AUTH_ERR_CODE_START + 12, "登录失败次数过多");
     public static final CustomError ERR_LOGIN_USER_LOCKED = new CustomError(AUTH_ERR_CODE_START + 13, "账号已被锁定");
     public static final CustomError ERR_LOGIN_AUTH_FAILED = new CustomError(AUTH_ERR_CODE_START + 14, "没有访问权限");

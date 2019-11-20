@@ -1,94 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ink.baojie.jiaju.data.dao.ImgDao">
-  <resultMap id="BaseResultMap" type="ink.baojie.jiaju.data.po.ImgPo">
-    <!--@mbg.generated-->
-    <!--@Table t_img-->
-    <id column="id" property="id" />
-    <result column="title" property="title" />
-    <result column="url" property="url" />
-    <result column="create_time" property="createTime" />
-    <result column="update_time" property="updateTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, title, url, create_time, update_time
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from t_img
-    where id = #{id}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    <!--@mbg.generated-->
-    delete from t_img
-    where id = #{id}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="ink.baojie.jiaju.data.po.ImgPo" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into t_img (title, url, create_time, update_time)
-    values (#{title}, #{url}, #{createTime}, #{updateTime})
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="ink.baojie.jiaju.data.po.ImgPo" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into t_img
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="title != null and title != ''">
-        title,
-      </if>
-      <if test="url != null and url != ''">
-        url,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="title != null and title != ''">
-        #{title},
-      </if>
-      <if test="url != null and url != ''">
-        #{url},
-      </if>
-      <if test="createTime != null">
-        #{createTime},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="ink.baojie.jiaju.data.po.ImgPo">
-    <!--@mbg.generated-->
-    update t_img
-    <set>
-      <if test="title != null and title != ''">
-        title = #{title},
-      </if>
-      <if test="url != null and url != ''">
+    <resultMap id="BaseResultMap" type="ink.baojie.jiaju.data.po.ImgPo">
+        <!--@mbg.generated-->
+        <!--@Table t_img-->
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="url" property="url"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, title, url, create_time, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_img
+        where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from t_img
+        where id = #{id}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="ink.baojie.jiaju.data.po.ImgPo"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_img (title, url, create_time, update_time)
+        values (#{title}, #{url}, #{createTime}, #{updateTime})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="ink.baojie.jiaju.data.po.ImgPo"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_img
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">
+                title,
+            </if>
+            <if test="url != null and url != ''">
+                url,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null and title != ''">
+                #{title},
+            </if>
+            <if test="url != null and url != ''">
+                #{url},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="ink.baojie.jiaju.data.po.ImgPo">
+        <!--@mbg.generated-->
+        update t_img
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="ink.baojie.jiaju.data.po.ImgPo">
+        <!--@mbg.generated-->
+        update t_img
+        set title = #{title},
         url = #{url},
-      </if>
-      <if test="createTime != null">
         create_time = #{createTime},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime},
-      </if>
-    </set>
-    where id = #{id}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="ink.baojie.jiaju.data.po.ImgPo">
-    <!--@mbg.generated-->
-    update t_img
-    set title = #{title},
-      url = #{url},
-      create_time = #{createTime},
-      update_time = #{updateTime}
-    where id = #{id}
-  </update>
+        update_time = #{updateTime}
+        where id = #{id}
+    </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-20-->
+    <select id="selectOneByUrl" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_img
+        where url=#{url}
+    </select>
 </mapper>

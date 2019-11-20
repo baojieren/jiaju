@@ -19,6 +19,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -114,7 +115,7 @@ public class LogAspect {
                     if (arg instanceof ServletRequest || arg instanceof ServletResponse || arg instanceof MultipartFile) {
                         continue;
                     }
-                    params = JSONObject.toJSONString(arg);
+                    params += JSONObject.toJSONString(arg);
                 }
             }
         }

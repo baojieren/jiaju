@@ -14,6 +14,8 @@ public class UserPo implements Serializable {
 
     private String password;
 
+    private String openId;
+
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;

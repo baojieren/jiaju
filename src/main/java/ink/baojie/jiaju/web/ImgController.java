@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 @RestController
 @Slf4j
@@ -27,12 +29,16 @@ public class ImgController {
     public BaseOutDTO getToken(String fileName) {
         BaseOutDTO outDTO = new BaseOutDTO();
         Auth auth = Auth.create(settings.getQnAccesskey(), settings.getQnSecretkey());
-        String token = auth.uploadToken(settings.getQnBucket(), getFileExtra(fileName));
+        fileName = Base64.getEncoder().encodeToString(fileName.getBytes(StandardCharsets.UTF_8)) + getFileExtra(fileName);
+        String token = auth.uploadToken(settings.getQnBucket(), fileName);
         QiNiuTokenBO bo = new QiNiuTokenBO(settings.getQnDomain(), token, fileName);
         outDTO.setData(bo);
         return outDTO;
     }
 
+    /**
+     * 获取文件扩展名
+     */
     private String getFileExtra(String fileName) throws CustomException {
         int index = fileName.lastIndexOf(".");
         if (index == -1) {

@@ -8,5 +8,5 @@ import lombok.Data;
 public class QiNiuTokenBO {
     private String domain;
     private String token;
-    private String fileKey;
+    private String key;
 }

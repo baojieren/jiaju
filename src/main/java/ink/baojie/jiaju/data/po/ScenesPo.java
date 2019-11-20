@@ -9,20 +9,25 @@ public class ScenesPo implements Serializable {
     private Integer id;
 
     /**
-    * 标题
-    */
+     * 标题
+     */
     private String title;
 
     /**
-    * 图片id,多个用逗号隔开
-    */
+     * 图片id,多个用逗号隔开
+     */
     private String img;
 
     private String remake;
 
-    private LocalDateTime createTime;
+    /**
+     * 0:无效,1:有效
+     */
+    private Integer valid;
 
-    private LocalDateTime updateTime;
+    private String createTime;
+
+    private String updateTime;
 
     private static final long serialVersionUID = 1L;
 }
