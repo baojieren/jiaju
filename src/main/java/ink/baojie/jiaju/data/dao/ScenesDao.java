@@ -20,4 +20,9 @@ public interface ScenesDao {
     int countByCond(SelectScenesListInDTO inDTO);
 
     List<ScenesPo> selectPageListByCond(SelectScenesListInDTO inDTO);
+
+    /**
+     * mini获取所有系列
+     */
+    List<ScenesPo> selectScenesListForMini();
 }

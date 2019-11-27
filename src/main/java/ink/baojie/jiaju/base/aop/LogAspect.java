@@ -104,10 +104,10 @@ public class LogAspect {
         }
 
         // 请求参数
-        String params = "";
+        StringBuilder params = new StringBuilder();
         if (HttpMethod.GET.toString().equals(method)) {
             if (!StringUtils.isEmpty(queryString)) {
-                params = URLDecoder.decode(queryString, "UTF-8");
+                params = new StringBuilder(URLDecoder.decode(queryString, "UTF-8"));
             }
         } else {
             if (!ObjectUtils.isEmpty(args)) {
@@ -115,7 +115,7 @@ public class LogAspect {
                     if (arg instanceof ServletRequest || arg instanceof ServletResponse || arg instanceof MultipartFile) {
                         continue;
                     }
-                    params += JSONObject.toJSONString(arg);
+                    params.append(JSONObject.toJSONString(arg));
                 }
             }
         }
@@ -129,7 +129,7 @@ public class LogAspect {
                 , map.get("url")
                 , map.get("userId")
                 , IpUtil.getRemoteIP(request)
-                , params);
+                , params.toString());
 
         // 执行实际方法，result为方法执行返回值
         Object result = joinPoint.proceed();

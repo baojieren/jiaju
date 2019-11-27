@@ -25,7 +25,7 @@ public class Settings {
     }
 
     public String getQnDomain() {
-        return debug ? "http://upload-z2.qiniup.com" : "http://upload-z2.qiniup.com";
+        return debug ? "https://upload-z2.qiniup.com" : "https://upload-z2.qiniup.com";
     }
 
     /**

@@ -150,5 +150,9 @@
         </where>
         limit #{offset},#{pageSize}
     </select>
+    <select id="selectScenesListForMini" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/> from t_scenes
+        where valid = 1
+    </select>
 
 </mapper>
